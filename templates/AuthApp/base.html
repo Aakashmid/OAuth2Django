@@ -10,13 +10,13 @@
 <body>
     <header>
         <nav class="bg-black text-white flex items-center justify-around">
-            <p class="text-xl font-bold p-2">Logo</p>
+            <p class="text-xl font-bold p-3 cursor-pointer">Django-Social-Auth</p>
             <ul class="flex items-center space-x-2">
                 {% if user.is_authenticated %}
-                <li class=""><a href="" class="text-lg p-2">Logout</a></li>
+                <li class=""><a href="{% url 'Logout user' %}" class="text-lg p-2 hover:underline active:text-gray-400">Logout</a></li>
                 {% else %}
-                <li class=""><a href="" class="text-lg p-2">Login</a></li>
-                <li class=""><a href="" class="text-lg p-2">Sign Up</a></li>
+                <li class=""><a href="{% url 'Login user' %}" class="text-lg p-2 hover:underline active:text-gray-400">Login</a></li>
+                <li class=""><a href="{% url 'Create user' %}" class="text-lg p-2 hover:underline active:text-gray-400">Sign Up</a></li>
                 {% endif %}
             </ul>
         </nav>

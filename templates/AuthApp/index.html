@@ -1,13 +1,15 @@
 {% extends "AuthApp/base.html" %}
 {% block body %}
 <div class="container">
-    <div class="form-box  mx-auto lg:w-1/2">
-        <h2>Sign up</h2>
-        <form method="post">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">Sign up</button>
-        </form>
-    </div>
+  <div class="user-detail w-1/2 mx-auto pt-4 px-2">
+    {% if user.is_authenticated %}
+    <h3 class="text-center">Welcome {{user.username}} - {{user.first_name}} {{user.last_name}}  !!</h3>
+    {% else %}
+    <p class="text-center">User is not signed in </p>
+    {% endif %}
+  </div>
+  {% for u in Users  %}
+  <p class="">{{u.username}}</p>
+  {% endfor %}
 </div>
 {% endblock body %}
