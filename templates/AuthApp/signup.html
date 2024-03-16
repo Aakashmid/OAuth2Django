@@ -1,10 +1,36 @@
 {% extends "AuthApp/base.html" %}
 
-{% block content %}
-  <h2>Sign up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-  </form>
-{% endblock %}
+{% block body %}
+<div class="container">
+
+  <div class="login-box lg:w-[30%]  mx-auto p-2">
+    <h2 class="text-center text-xl font-semibold">Sign Up</h2>
+    <form method="post" class="">
+      {% csrf_token %}
+      <div class="flex flex-col mt-2">
+        <label for="Email" class="text-lg">
+          Email Address
+        </label>
+        <input type="email" name="Email" class="text-lg outline-none border-[1px] p-1 rounded-md"  id="Email">
+      </div>
+      <div class="flex flex-col mt-2">
+        <label for="password" class="text-lg">
+          Password
+        </label>
+        <input type="password" name="password"  class="text-lg outline-none border-[1px] p-1 rounded-md" id="password">
+      </div>
+      <div class="flex flex-col mt-2">
+        <label for="confirm_password" class="text-lg">
+          Confirm Password
+        </label>
+        <input type="password" name="confirm_password"  class="text-lg outline-none border-[1px] p-1 rounded-md" id="confirm_password">
+      </div>
+      <div class="flex-col flex items-center mt-2">
+        {% load socialaccount %}
+        <span class=""><a href="{% provider_login_url 'google' %}" class="hover:underline active:text-blue-500">Continue With Google</a></span>
+      </div>
+      <button type="submit" class="w-2/3 block mx-auto mt-3 bg-black text-white font-semibold rounded-lg  p-2">Sign up</button>
+    </form>
+  </div>
+</div>
+{% endblock body %}

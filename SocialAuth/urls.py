@@ -22,4 +22,6 @@ urlpatterns = [
     # for authentication
     path('',include('AuthApp.urls')),
     path('accounts/', include('allauth.urls')),
+
+
 ]

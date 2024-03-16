@@ -6,4 +6,5 @@ urlpatterns = [
     path('logout/',views.logout_hand,name='Logout user'),
     path('login/',views.login_hand,name='Login user'),
     path('signup/',views.signup_hand,name='Create user'),
+    path('accounts/google/login/', views.custom_google_login, name='custom_google_login'),
 ]
