@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -57,6 +58,20 @@ SOCIALACCOUNT_PROVIDERS = {
         'AUTH_PARAMS': {
             'access_type': 'online',
         },
+    },
+    'github': {
+        'SCOPE': [
+            'user',
+            # 'repo',
+            # 'read:org',
+        ],
+         "APPS": [
+            {
+                "client_id": "1a04ad6aadaee9af26d1",
+                "secret": "382127525d84aac66631477bb018379f753f01cc",
+                "key": ""
+            },
+        ],
     }
 }
 
@@ -157,9 +172,5 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-# ACCOUNT_EMAIL_REQUIRED = True
-# ACCOUNT_USERNAME_REQUIRED = False
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# ACCOUNT_EMAIL_VERIFICATION = 'optional'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'

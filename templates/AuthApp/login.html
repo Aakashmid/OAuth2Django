@@ -1,4 +1,5 @@
 {% extends "AuthApp/base.html" %}
+{% load socialaccount %}  {% comment  %} For using provider_login_url method{% endcomment %}
 {% block body %} 
 <div class="container">
 
@@ -19,11 +20,13 @@
         <input type="password" name="password"  class="text-lg outline-none border-[1px] p-1 rounded-md" id="password">
       </div>
       <div class="flex-col flex items-center mt-2">
-        {% load socialaccount %}
         <span class=""><a href="{% provider_login_url 'google' %}" class="hover:underline active:text-blue-500">Continue With Google</a></span>
+      </div>
+      <div class="flex-col flex items-center mt-2">
+        <span class=""><a href="{% provider_login_url 'github' %}" class="hover:underline active:text-blue-500">Continue With Github</a></span>
       </div>
       <button type="submit" class="w-2/3 block mx-auto mt-3 bg-black text-white font-semibold rounded-lg  p-2">Login</button>
     </form>
   </div>
 </div>
-  {% endblock body %}
+{% endblock body %}

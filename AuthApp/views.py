@@ -20,3 +20,7 @@ def custom_google_login(request):
     
     # Redirect the user to the Google authentication URL
     return redirect(google_auth_url)
+def custom_github_login(request):
+    # Construct the Google authentication URL
+    github_auth_url = "https://github.com/login/oauth/authorize?client_id=1a04ad6aadaee9af26d1&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Faccounts%2Fgithub%2Flogin%2Fcallback%2F&scope=user&response_type=code&state=P10IjjLiDfzUJt7Y"
+    return redirect(github_auth_url)
